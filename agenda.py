@@ -36,16 +36,24 @@ def contatos_favoritos(contatos):
         if contato["favorito"]:
             print(f"{contato}")
 
+def deletar_contato(contatos):
+    indice_contato_ajustado = int(indice_contato) - 1
+    if indice_contato_ajustado >= 0 and indice_contato_ajustado < len(contatos):
+        contatos.pop(indice_contato_ajustado)
+        print(f"O contato {nome} foi deletado com sucesso.")
+
+
 contatos = []
 
 while True:
     print("\nMenu do gerenciador de lista de tarefas:")
     print("1. Adicionar contato.")
     print("2. Editar contato.")
-    print("3. Marcar/Desmarcar como favorito.")
-    print("4. Ver contatos favoritos.")
-    print("5. Ver todos os contatos.")
-    print("6. Sair.")
+    print("3. Ver todos os contatos.")
+    print("4. Marcar/Desmarcar como favorito.")
+    print("5. Ver contatos favoritos.")
+    print("6. Apagar contato.")
+    print("7. Sair.")
     escolha = input("Digite a sua escolha: ")
     
     if escolha == "1":
@@ -61,18 +69,23 @@ while True:
         novo_telefone = input ("Digite o novo telefone: ")
         novo_email = input ("Digite o novo email: ")
         editar_contato(contatos, indice_contato, novo_nome, novo_telefone, novo_email)
-
+    
     if escolha == "3":
+        ver_contatos(contatos)
+
+    if escolha == "4":
         ver_contatos(contatos)
         indice_contato = input("Escolha o contato que quer favoritar: ")
         marcar_favorito(contatos)
 
-    if escolha == "4":
+    if escolha == "5":
         contatos_favoritos(contatos)
 
-    if escolha == "5":
-        ver_contatos(contatos)
-
     if escolha == "6":
+        ver_contatos(contatos)
+        indice_contato = input ("Escolha o contato para deletar.")
+        deletar_contato(contatos)    
+
+    if escolha == "7":
         break
 print("Programa finalizado.")
