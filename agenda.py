@@ -46,7 +46,7 @@ def deletar_contato(contatos):
 contatos = []
 
 while True:
-    print("\nMenu do gerenciador de lista de tarefas:")
+    print("\nMenu da agenda:")
     print("1. Adicionar contato.")
     print("2. Editar contato.")
     print("3. Ver todos os contatos.")
